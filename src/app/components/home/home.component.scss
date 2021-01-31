@@ -1,0 +1,19 @@
+.welcome-container {
+  margin-top: 60px;
+}
+
+.main-content {
+  margin-top: 40px;
+  background-image: url('../../../assets/images/gear.png');
+  height: 500px;
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  .details {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+  }
+}
