@@ -12,15 +12,19 @@ export class AuthGuard implements CanActivate, CanLoad, CanActivateChild {
   ) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree {
+    return this.checkPermissions();
+  }
+
+  canLoad(route: Route, segment: UrlSegment[]): boolean | UrlTree {
+    return this.checkPermissions();
+  }
+
+  canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree  {
+    return this.checkPermissions();
+  }
+
+  private checkPermissions(): boolean | UrlTree {
     const isAuthorized: boolean = this.authService.isLogedIn$.getValue();
     return isAuthorized ? true : this.router.createUrlTree(['home']);
-  }
-
-  canLoad(route: Route, segment: UrlSegment[]): boolean {
-    return this.authService.isLogedIn$.getValue();
-  }
-
-  canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    return this.authService.isLogedIn$.getValue();
   }
 }
