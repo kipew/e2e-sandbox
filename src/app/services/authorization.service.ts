@@ -37,6 +37,8 @@ export class AuthorizationService {
   }
 
   logout(): void {
+    // NOTE: any sync with server on logoutz
+    // TODO: fix it in the next PR
     this.cookieService.delete(authToken);
     this.isLogedIn$.next(false);
     this.router.navigate(['/']);

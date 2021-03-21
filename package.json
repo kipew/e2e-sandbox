@@ -7,7 +7,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e",
+    "e2e": "ng e2e --configuration=default",
+    "e2e-pre-serve": "npm run start -- --port 4300",
+    "e2e-on-serve": "ng e2e --configuration=no-serve --base-url http://localhost:4300",
     "server": "node server/index.js"
   },
   "private": true,

@@ -13,14 +13,16 @@ const AppTokenName = 'AuthSuperApp';
 const SuperSecretKey = 'secret_key' + Math.random().toString().slice(1, 5);
 
 const corsOptions = {
-  origin: 'http://localhost:4200',
+  origin: true,
   credentials: true,
 }
+
 app.use(cors(corsOptions));
 
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+
 app.use(bodyParser.json());
 
 app.use(cookieParser());

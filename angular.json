@@ -119,12 +119,17 @@
         "e2e": {
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "super-app:serve"
+            "protractorConfig": "e2e/protractor.conf.js"
           },
           "configurations": {
+            "default": {
+              "devServerTarget": "super-app:serve"
+            },
             "production": {
               "devServerTarget": "super-app:serve:production"
+            },
+            "no-serve": {
+              "devServerTarget": ""
             }
           }
         }

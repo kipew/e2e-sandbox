@@ -13,7 +13,10 @@ exports.config = {
     './src/**/*.e2e-spec.ts'
   ],
   capabilities: {
-    browserName: 'chrome'
+    browserName: 'chrome',
+    chromeOptions: {
+      // args: [ '--headless', '--disable-gpu', '--window-size=1920,1080']
+    }
   },
   directConnect: true,
   baseUrl: 'http://localhost:4200/',
@@ -29,7 +32,7 @@ exports.config = {
     });
     jasmine.getEnv().addReporter(new SpecReporter({
       spec: {
-        displayStacktrace: StacktraceOption.PRETTY
+        // displayStacktrace: StacktraceOption.PRETTY
       }
     }));
   }
